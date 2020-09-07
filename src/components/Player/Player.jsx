@@ -1,10 +1,17 @@
 import React from "react";
 import "./Player.css";
+import Sidebar from "./Sidebar/Sidebar";
+import MainBody from "./MainBody/MainBody";
+import Footer from "./Footer/Footer";
 
-function Player() {
+function Player({ spotify }) {
   return (
     <div className="player">
-      <h2>Iam Player</h2>
+      <div className="player__body">
+        <Sidebar />
+        <MainBody />
+        <Footer />
+      </div>
     </div>
   );
 }

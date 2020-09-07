@@ -9,16 +9,16 @@ import { useStateContext } from "./StateProvider";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [{ user }, dispatch] = useStateContext();
+  const [{ user, token }, dispatch] = useStateContext();
   useEffect(() => {
     const tokenString = getTokenFromResponse();
-    console.log(token);
     window.location.hash = "";
     const _token = tokenString.access_token;
-
     if (_token) {
-      setToken(_token);
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         dispatch({
@@ -28,8 +28,11 @@ function App() {
       });
     }
   }, []);
-  console.log(user);
-  return <div className="app">{token ? <Player /> : <Login />}</div>;
+  return (
+    <div className="app">
+      {token ? <Player spotify={spotify} /> : <Login />}
+    </div>
+  );
 }
 
 export default App;
