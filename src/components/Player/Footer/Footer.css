@@ -2,7 +2,39 @@
   position: fixed;
   bottom: 0;
   height: 65px;
-  width: 100%;
+  width: calc(100% - 40px);
   background-color: #282828;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__left {
+  display: flex;
+}
+.footer__albumArt {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+.footer__albumTitle {
+  margin-bottom: 8px;
+  color: white;
+}
+.footer__albumArtist {
+  color: grey;
+}
+.footer__center {
+  flex: 0.4;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.footer__right {
+  /* width: 50px; */
+}
+.footer__volumeSlider {
+  width: 150px;
 }

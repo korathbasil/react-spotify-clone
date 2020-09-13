@@ -4,8 +4,90 @@
   background-color: blueviolet; */
   flex: 0.8;
   /* background-color: rgb(91, 87, 115); */
-  height: 100vh;
+  height: calc(100vh - 65px);
   color: white;
-  padding: 30px;
+  /* padding: 30px; */
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+}
+.mainBody__header {
+  /* background-color: yellow; */
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mainBody__headerSearchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: grey;
+  border-radius: 99px;
+  margin-left: 20px;
+  height: 33px;
+}
+.mainBody__headerSearchContainer > input {
+  outline: none;
+  border: none;
+}
+.mainBody__headerAccount {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border-radius: 999px;
+  margin-right: 20px;
+}
+.mainBody__headerAccount > img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 999px;
+  margin: 3px;
+}
+.mainBody__headerAccount > h4 {
+  margin: 0 10px;
+}
+.mainBody__albumInfo {
+  display: flex;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  align-items: flex-end;
+}
+.mainBody__albumInfo > img {
+  width: 200px;
+  height: 200px;
+}
+.mainBody__albumInfoNames {
+  margin-left: 20px;
+}
+.mainBOdy__songsContainer {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.mainBody__songsContainerHeader {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.mainBody__songsContainerTableItemsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 60px);
+  margin: 0 30px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(128, 128, 128, 0.5);
+}
+.mainBody__songsContainerTableItemsTitle {
+  display: flex;
+  align-items: center;
+}
+.mainBody__songsContainerTableItemsAlbumDuration {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.mainBody__songListContainer {
+  width: calc(100% - 40px);
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
