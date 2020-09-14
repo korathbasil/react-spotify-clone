@@ -27,9 +27,16 @@ function App() {
         });
       });
       spotify.getUserPlaylists().then((playlists) => {
+        console.log(playlists);
         dispatch({
           type: "SET_PLAYLISTS",
           playlists,
+        });
+      });
+      spotify.getPlaylist("37i9dQZEVXcPMOFCvslfay").then((response) => {
+        dispatch({
+          type: "SET_WEEKLY",
+          weekly_playlist: response,
         });
       });
     }

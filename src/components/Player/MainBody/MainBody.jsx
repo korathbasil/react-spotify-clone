@@ -1,12 +1,14 @@
 import React from "react";
 import "./MainBody.css";
-import Song from "../../Song/Song";
+import Song from "../Song/Song";
 import SearchIcon from "@material-ui/icons/Search";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import TimerIcon from "@material-ui/icons/Timer";
+import { useStateContext } from "../../../StateProvider";
 
-function MainBody() {
+function MainBody({ spotify }) {
+  const [{ weekly_playlist }, dispatch] = useStateContext();
   return (
     <div className="mainBody">
       <div className="mainBody__header">
@@ -23,14 +25,13 @@ function MainBody() {
         </div>
       </div>
       <div className="mainBody__albumInfo">
-        <img
-          src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/artistic-album-cover-design-template-d12ef0296af80b58363dc0deef077ecc_screen.jpg?ts=1561488440"
-          alt=""
-        />
+        <img src={weekly_playlist?.images[0].url} alt="" />
         <div className="mainBody__albumInfoNames">
           <p>PLAYLIST</p>
-          <h1>The Everyday Good</h1>
-          <p className="mainBody__albumInfoDesc">Best songs of 2020</p>
+          <h1>{weekly_playlist?.name}</h1>
+          <p className="mainBody__albumInfoDesc">
+            {weekly_playlist?.description}
+          </p>
         </div>
       </div>
       <div className="mainBOdy__songsContainer">
@@ -51,7 +52,15 @@ function MainBody() {
           </div>
         </div>
         <div className="mainBody__songListContainer">
-          <Song />
+          {weekly_playlist?.tracks.items.map((item) => {
+            // console.log(item.track);
+            return (
+              <Song
+                track={item.track}
+                index={weekly_playlist.tracks.items.indexOf(item) + 1}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
