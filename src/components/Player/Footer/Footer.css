@@ -38,3 +38,6 @@
 .footer__volumeSlider {
   width: 150px;
 }
+.footer__right > * .MuiSlider_root {
+  color: green;
+}
